@@ -6,12 +6,13 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // all routes
-
+const userRoutes = require('./routes/Users/index')
 //------------------all middlewares------------------------
 applyMiddleware(app);
+app.use(userRoutes)
 
 app.get("/health", (req, res) => {
-  res.send("Welcome to the pet adoption server  ....");
+  res.send("Welcome to the task server  ....");
 });
 
 app.all("*", (req, res, next) => {
